@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>su.mingchang137.commander-of-leek</id>
+    <name>Commander of Leek</name>
+    <vendor email="ming@mingchang137.su" url="https://mingchang137.su">Ming Chang</vendor>
+
+    <description><![CDATA[
+    <p>Get stock information from Yahoo! Finance API, then push share price in notification every minute to keep you updated.</p>
+    <br>
+    <h1>韭菜總司令</h1>
+    <br>
+    <p>從Yahoo! Finance API取得資訊，每分鐘以通知方式推送股價，讓您不必上班摸魚也能及時掌握股市動態。</p>
+    <br>
+    <h2>How to use 如何使用</h2>
+    <br>
+    <li>Tools -> 韭菜總司令 - 新增：Add stock</li>
+    <li>Tools -> 韭菜總司令 - 停止更新：Stop pushing notification.</li>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="StockNG" displayType="BALLOON"/>
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="info.main" class="Main" text="韭菜總司令 - 新增">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+        <action id="info.stop" class="Stop" text="韭菜總司令 - 停止更新">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="info.main"/>
+        </action>
+    </actions>
+</idea-plugin>
