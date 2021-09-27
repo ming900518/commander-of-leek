@@ -12,9 +12,9 @@ public class Leek {
 
     public static Timer t = new Timer();
 
-    public static Timer start() {
-        String ans = Messages.showInputDialog("請輸入欲查詢的股票代號（每分鐘查詢一次）", "輸入股票代號", Messages.getQuestionIcon());
-        String[] options = {Messages.getOkButton()};
+    public static void start() {
+        String ans = Messages.showInputDialog("Enter stock symbol. (Will push notification every minute.)", "Enter Stock Symbol", Messages.getQuestionIcon());
+
         if (ans != null && (!ans.isBlank())) {
             t.scheduleAtFixedRate(
                     new TimerTask() {
@@ -22,15 +22,13 @@ public class Leek {
                             query(ans);
                         }
                     },
-                    0,
+                    1000,
                     60000);
-            Notification notification = new Notification("StockNG", "操作成功", ans + "將會於每分鐘以通知形式更新", NotificationType.IDE_UPDATE);
+            Notification notification = new Notification("StockNG", "Operation successful: ", ans + ". Will push share price every minute.", NotificationType.INFORMATION);
             Notifications.Bus.notify(notification);
-            return t;
         } else {
-            Notification notification = new Notification("StockNG", "操作失敗", "未輸入股票代號", NotificationType.WARNING);
+            Notification notification = new Notification("StockNG", "Operation failed. ", "No stock symbol found.", NotificationType.WARNING);
             Notifications.Bus.notify(notification);
-            return null;
         }
     }
 
@@ -44,7 +42,7 @@ public class Leek {
             json = JSONReader.readJsonFromUrl("https://query1.finance.yahoo.com/v8/finance/chart/" + ans + "?interval=1d");
         } catch (Exception ex) {
             ex.printStackTrace();
-            Notification notification = new Notification("StockNG", "處理失敗", "無法正常取得資料", NotificationType.WARNING);
+            Notification notification = new Notification("StockNG", "Process failed", "Can't get response correctly.", NotificationType.WARNING);
             Notifications.Bus.notify(notification);
             stop();
         }

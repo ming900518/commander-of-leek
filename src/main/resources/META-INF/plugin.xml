@@ -12,8 +12,8 @@
     <br>
     <h2>How to use 如何使用</h2>
     <br>
-    <li>Tools -> 韭菜總司令 - 新增：Add stock</li>
-    <li>Tools -> 韭菜總司令 - 停止更新：Stop pushing notification.</li>
+    <li>Tools -> CoL - Add Stock：Add stock symbol.</li>
+    <li>Tools -> CoL - Stop：Stop pushing notification.</li>
     ]]></description>
 
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
@@ -27,10 +27,10 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="info.main" class="Main" text="韭菜總司令 - 新增">
+        <action id="info.main" class="Main" text="CoL - Add Stock">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
         </action>
-        <action id="info.stop" class="Stop" text="韭菜總司令 - 停止更新">
+        <action id="info.stop" class="Stop" text="CoL - Stop">
             <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="info.main"/>
         </action>
     </actions>
