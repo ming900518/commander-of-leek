@@ -2,6 +2,7 @@
     <id>su.mingchang137.commander-of-leek</id>
     <name>Commander of Leek</name>
     <vendor email="ming@mingchang137.su" url="https://mingchang137.su">Ming Chang</vendor>
+    <idea-version since-build="212.5080" until-build="500.*"/>
 
     <description><![CDATA[
     <p>Get stock information from Yahoo! Finance API, then push share price in notification every minute to keep you updated.</p>
